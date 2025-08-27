@@ -1,0 +1,29 @@
+ <form action="mailto:joe.bornrich@outlook.com" method="post" enctype="text/plain"
+           onsubmit= "event.preventDefault(); alert('This is a demo form — replace with your backend or a mailto.');"
+              style="display: flex; flex-direction: column; gap: 12px"
+            >
+              <div class="field">
+                <label>Name</label><input required placeholder="Your name" />
+              </div>
+              <div class="field">
+                <label>Email</label
+                ><input type="email" required placeholder="your@email.com" />
+              </div>
+              <div class="field">
+                <label>Message</label
+                ><textarea
+                  rows="4"
+                  required
+                  placeholder="What do you want to build?"
+                ></textarea>
+              </div>
+              <div style="display: flex; gap: 12px">
+                <button class="btn cta" type="submit">Send message</button
+                ><a
+                  class="btn btn-outline"
+                  href="https://drive.google.com/drive/folders/1fd12QHy3xoYOSpmaEvajMW30XvSXxQdg?usp=drive_link"
+                  download
+                  >Download CV</a
+                >
+              </div>
+            </form>
