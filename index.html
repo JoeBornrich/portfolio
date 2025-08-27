@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Joseph Borketey — Portfolio</title>
+    <meta name="description" content="" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #0f1724;
+        --card: #0b1220;
+        --muted: #98a0b3;
+        --accent1: #7c3aed;
+        --accent2: #06b6d4;
+        --glass: rgba(255, 255, 255, 0.04);
+        --radius: 14px;
+        --max-w: 1100px;
+        --gap: 24px;
+        color-scheme: dark;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        margin: 0;
+        font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial;
+        background: linear-gradient(180deg, var(--bg) 0%, #071028 100%);
+        color: #e6eef8;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        padding: 40px 20px;
+      }
+      .wrap {
+        width: 100%;
+        max-width: var(--max-w);
+      }
+
+      /* Card / panel */
+      .panel {
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.02),
+          rgba(255, 255, 255, 0.01)
+        );
+        padding: 28px;
+        border-radius: var(--radius);
+        backdrop-filter: blur(6px);
+        box-shadow: 0 10px 30px rgba(2, 6, 23, 0.6);
+      }
+
+      /* Header / Nav */
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 26px;
+      }
+      .brand {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+      }
+      .logo {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, var(--accent1), var(--accent2));
+        display: grid;
+        place-items: center;
+        font-weight: 800;
+        font-size: 18px;
+        color: white;
+        box-shadow: 0 6px 18px rgba(124, 58, 237, 0.18);
+      }
+      nav {
+        display: flex;
+        gap: 18px;
+        align-items: center;
+      }
+      nav a {
+        color: var(--muted);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 14px;
+      }
+      .cta {
+        padding: 8px 14px;
+        border-radius: 10px;
+        background: linear-gradient(90deg, var(--accent2), var(--accent1));
+        color: #021026;
+        text-decoration: none;
+        font-weight: 700;
+      }
+
+      /* Hero */
+      .hero {
+        display: grid;
+        grid-template-columns: 1fr 360px;
+        gap: 30px;
+        align-items: center;
+      }
+      .hero-left h1 {
+        font-size: 40px;
+        margin: 0 0 8px 0;
+        line-height: 1.02;
+      }
+      .hero-left p {
+        margin: 0;
+        color: var(--muted);
+        max-width: 60ch;
+      }
+      .hero-actions {
+        display: flex;
+        gap: 12px;
+        margin-top: 18px;
+      }
+      .btn {
+        padding: 10px 14px;
+        border-radius: 10px;
+        text-decoration: none;
+        font-weight: 700;
+      }
+      .btn-outline {
+        background: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        color: var(--muted);
+      }
+
+      /* Card on right */
+      .profile-card {
+        padding: 18px;
+        border-radius: 12px;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.02),
+          rgba(255, 255, 255, 0.01)
+        );
+      }
+      .avatar {
+        width: 100%;
+        height: 220px;
+        border-radius: 10px;
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+        background: linear-gradient(135deg, var(--accent1), var(--accent2));
+      }
+      .avatar h2 {
+        margin: 0;
+      }
+      .meta {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 14px;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      /* Sections */
+      section {
+        margin-top: 22px;
+      }
+      .section-title {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 12px;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--gap);
+      }
+
+      /* project card */
+      .project {
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.015),
+          rgba(255, 255, 255, 0.01)
+        );
+        padding: 14px;
+        border-radius: 12px;
+      }
+      .project .thumb {
+        height: 140px;
+        border-radius: 8px;
+        background: linear-gradient(135deg, #122a4a, #0e1724);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--muted);
+        font-weight: 700;
+      }
+      .project h3 {
+        margin: 12px 0 6px 0;
+        font-size: 16px;
+      }
+      .project p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 13px;
+      }
+      .project .tags {
+        margin-top: 10px;
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .tag {
+        padding: 6px 8px;
+        border-radius: 8px;
+        background: var(--glass);
+        font-size: 12px;
+        color: var(--muted);
+      }
+
+      /* contact */
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 360px;
+        gap: 20px;
+      }
+      .field {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      input,
+      textarea {
+        padding: 12px;
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.04);
+        background: transparent;
+        color: inherit;
+      }
+
+      footer {
+        margin-top: 28px;
+        color: var(--muted);
+        font-size: 13px;
+        text-align: center;
+      }
+
+      /* Responsive */
+      @media (max-width: 880px) {
+        .hero {
+          grid-template-columns: 1fr;
+        }
+        .profile-card {
+          order: -1;
+        }
+        .grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .contact-grid {
+          grid-template-columns: 1fr;
+        }
+        nav {
+          display: none;
+        }
+      }
+      @media (max-width: 480px) {
+        .grid {
+          grid-template-columns: 1fr;
+        }
+        .logo {
+          width: 44px;
+          height: 44px;
+        }
+        .hero-left h1 {
+          font-size: 28px;
+        }
+      }
+
+      /* subtle animations */
+      .fade-up {
+        opacity: 0;
+        transform: translateY(8px);
+        animation: fadeUp 0.6s ease forwards;
+      }
+      @keyframes fadeUp {
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="panel">
+        <div class="brand">
+          <div class="logo">JB</div>
+          <div>
+            <div style="font-weight: 700">Joseph Borketey</div>
+            <div style="font-size: 12px; color: var(--muted)">
+              MSc Electronics & Information Technology
+            </div>
+          </div>
+        </div>
+        <nav>
+          <a href="#projects">Projects</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+          <a class="cta" href="#contact">Hire me</a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="panel hero">
+          <div class="hero-left fade-up">
+            <h1>
+              Building Intelligent Systems | Image Processing, Generative AI &
+              Data Analysis
+            </h1>
+            <p>
+              I studeied MSc in Electronics & Information Technology. I build
+              image-processing prototypes, real-time object detection systems
+              and clean web frontends. Currently focusing on Data Analysis |
+              Generative AI and Agentic AI. Below are a few selected projects —
+              click to view details.
+            </p>
+            <div class="hero-actions">
+              <a class="btn cta" href="#projects">See projects</a>
+              <a
+                class="btn btn-outline"
+                href="mailto:joe.bornrich@outlook.com?subject=Portfolio%20enquiry"
+                >Email me</a
+              >
+            </div>
+          </div>
+          <aside class="profile-card fade-up">
+            <div class="avatar">
+              <div style="text-align: center">
+                <h2>JB</h2>
+                <div style="font-size: 12px; color: rgba(255, 255, 255, 0.85)">
+                  Data Analyst | AI • Developer
+                </div>
+              </div>
+            </div>
+            <div class="meta">
+              <div>Location<br /><strong>London, UK</strong></div>
+              <div>Role<br /><strong>Agentic AI & Data Analyst</strong></div>
+            </div>
+          </aside>
+        </section>
+
+        <section id="projects">
+          <div class="section-title">
+            <h3 style="margin: 0">Selected Projects</h3>
+            <div style="color: var(--muted); font-size: 13px">
+              — Real-time, image processing & web UI
+            </div>
+          </div>
+          <div class="grid">
+            <article class="project panel fade-up">
+              <div class="thumb">Misplaced Object Alert — YOLOv5</div>
+              <h3>Misplaced Object Alert System</h3>
+              <p>
+                Real-time object detection using YOLOv5, OpenCV and Python.
+                Alerts when items are moved or left in restricted zones.
+              </p>
+              <div class="tags">
+                <span class="tag">Python</span><span class="tag">YOLOv5</span
+                ><span class="tag">OpenCV</span>
+              </div>
+            </article>
+
+            <article class="project panel fade-up">
+              <div class="thumb">Embedded Camera Prototype</div>
+              <h3>Embedded Vision Prototype</h3>
+              <p>
+                Low-latency camera feed processing on Raspberry Pi and Jetson
+                Nano. Optimised models for edge inference.
+              </p>
+              <div class="tags">
+                <span class="tag">C++</span><span class="tag">Edge</span
+                ><span class="tag">Optimization</span>
+              </div>
+            </article>
+
+            <article class="project panel fade-up">
+              <div class="thumb">Interactive Dashboard</div>
+              <h3>Portfolio Dashboard</h3>
+              <p>
+                Responsive front-end showcasing projects, CV download and
+                contact form. Built with minimal dependencies to keep it fast.
+              </p>
+              <div class="tags">
+                <span class="tag">HTML</span><span class="tag">CSS</span
+                ><span class="tag">JS</span>
+              </div>
+            </article>
+            <article class="project panel fade-up">
+              <div class="thumb">Educational Agentic AI</div>
+              <h3>Educational Agentic AI</h3>
+              <p>
+                An Agentic AI tool that helps students to complete their
+                coursework and also study for their exams. This Agent gives
+                students the exact information they need, nothing outside
+                curriculum.
+              </p>
+              <div class="tags">
+                <span class="tag">Copilot Studio</span
+                ><span class=""
+                  ><a class="btn btn-outline" href="#">Watch Demo</a></span
+                >
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section id="about" class="panel">
+          <div class="section-title">
+            <h3 style="margin: 0">About</h3>
+            <div style="color: var(--muted); font-size: 13px">— Short bio</div>
+          </div>
+          <p style="color: var(--muted)">
+            I'm Joseph, an MSc graduate at University of South Wales. My thesis
+            focuses on image processing for Misplaced object Alert Systems in
+            real-time. I enjoy Data Analysis, building practical prototypes and
+            clean web UIs that make demos and proof-of-concepts easy to share.
+          </p>
+        </section>
+
+        <section id="contact" class="panel">
+          <div class="section-title">
+            <h3 style="margin: 0">Contact</h3>
+            <div style="color: var(--muted); font-size: 13px">
+              — Let's work together
+            </div>
+          </div>
+          <div class="contact-grid">
+            <form
+              onsubmit="event.preventDefault(); alert('This is a demo form — replace with your backend or a mailto.');"
+              style="display: flex; flex-direction: column; gap: 12px"
+            >
+              <div class="field">
+                <label>Name</label><input required placeholder="Your name" />
+              </div>
+              <div class="field">
+                <label>Email</label
+                ><input type="email" required placeholder="your@email.com" />
+              </div>
+              <div class="field">
+                <label>Message</label
+                ><textarea
+                  rows="4"
+                  required
+                  placeholder="What do you want to build?"
+                ></textarea>
+              </div>
+              <div style="display: flex; gap: 12px">
+                <button class="btn cta" type="submit">Send message</button
+                ><a
+                  class="btn btn-outline"
+                  href="https://drive.google.com/drive/folders/1fd12QHy3xoYOSpmaEvajMW30XvSXxQdg?usp=drive_link"
+                  download
+                  >Download CV</a
+                >
+              </div>
+            </form>
+
+            <aside
+              style="
+                padding: 12px;
+                border-radius: 12px;
+                background: linear-gradient(
+                  180deg,
+                  rgba(255, 255, 255, 0.02),
+                  rgba(255, 255, 255, 0.01)
+                );
+              "
+            >
+              <div style="font-weight: 700">Get in touch</div>
+              <div style="margin-top: 10px; color: var(--muted)">
+                Email:
+                <a href="mailto:joe.bornrich@outlook.com"
+                  >Joe.bornrich@outlook.com</a
+                >
+              </div>
+              <div style="margin-top: 8px; color: var(--muted)">
+                LinkedIn:
+                <a
+                  href="https://www.linkedin.com/in/joseph-borketey-bornrich"
+                  target="_blank"
+                >
+                  Visit my LinkedIn profile</a
+                >
+              </div>
+              <div style="margin-top: 8px; color: var(--muted)">
+                GitHub:
+                <a href="https://github.com/JoeBornrich" target="_blank"
+                  >JoeBornrich</a
+                >
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <footer>
+          <div>
+            © <span id="year"></span> Joseph Borketey — Built with in single
+            file.
+          </div>
+        </footer>
+      </main>
+    </div>
+
+    <script>
+      // small JS: mobile nav toggle + year
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      // Add basic fade-up delays
+      document.querySelectorAll(".fade-up").forEach((el, i) => {
+        el.style.animationDelay = i * 80 + "ms";
+      });
+
+      // Smooth-scroll for in-page links
+      document.querySelectorAll('a[href^="#"]').forEach((a) => {
+        a.addEventListener("click", (e) => {
+          const href = a.getAttribute("href");
+          if (href.length > 1) {
+            e.preventDefault();
+            document.querySelector(href).scrollIntoView({ behavior: "smooth" });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
